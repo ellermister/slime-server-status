@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh">
+ <head> 
+  <title>Neko Neko Status</title> 
+  <meta charset="utf-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  <link rel="preload" href="https://cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css" as="style" /> 
+  <link rel="stylesheet" href="https://cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css" media="all" /> 
+  <link rel="shortcut icon" href="/img/logo.svg" /> 
+  <link rel="stylesheet" href="/css/style.min.css" /> 
+  <script async="" src="/cdn-cgi/challenge-platform/h/b/scripts/invisible.js?ts=1653807600"></script>
+ </head> 
+ <body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-accent-blue"> 
+  <div id="loading" class="mdui-spinner" hidden="" style="z-index:10000000;position:fixed;top:0;bottom:0;left:0;right:0;margin: auto;height: 50px;width: 50px;"></div> 
+  <div class="mdui-appbar mdui-appbar-fixed mdui-color-white"> 
+   <div class="mdui-toolbar mdui-color-theme"> 
+    <button mdui-drawer="{target: '#main-drawer'}" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'菜单'}"> <i class="mdui-icon material-icons">menu</i> </button> 
+    <a href="/"> 
+     <div class="mdui-typo-title"> 
+      <span class="mdui-hidden-xs-down">Neko Neko Status </span>
+     </div> </a> 
+    <div class="mdui-toolbar-spacer"></div> 
+    <a href="/login" mdui-tooltip="{content:'登录'}" class="mdui-icon material-icons">build</a> 
+    <button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'rtx on/off'}" onclick="rtx()"> <i class="mdui-icon material-icons">brightness_4</i> </button> 
+   </div> 
+  </div> 
+  <script>
+var rtx_status=Number(localStorage.getItem('rtx'))||0;
+if(rtx_status)document.body.classList.add("mdui-theme-layout-dark");
+function rtx(){
+    if(rtx_status)document.body.classList.remove("mdui-theme-layout-dark");
+    else document.body.classList.add("mdui-theme-layout-dark");
+    rtx_status^=1;
+    localStorage.setItem('rtx',rtx_status);
+}
+</script> 
+  <div class="mdui-drawer" id="main-drawer"> 
+   <div class="mdui-list"> 
+    <a href="/stats/" class="mdui-list-item"> <i class="mdui-list-item-icon mdui-icon material-icons">apps</i> 
+     <div class="mdui-list-item-content">
+      节点监控
+     </div> </a> 
+    <a href="/links/" class="mdui-list-item"> <i class="mdui-list-item-icon mdui-icon material-icons">show_chart</i> 
+     <div class="mdui-list-item-content">
+      线路检测
+     </div> </a> 
+    <a href="/looking-glass/" class="mdui-list-item"> <i class="mdui-list-item-icon mdui-icon material-icons">flash_on</i> 
+     <div class="mdui-list-item-content">
+      LOOKING GLASS
+     </div> </a> 
+   </div> 
+  </div> 
+  <div id="container" class="mdui-container" style="margin-top: 8px;"> 
+   <div class="mdui-fab-wrapper" mdui-tooltip="{content:'切换卡片主题'}"> 
+    <a href="?theme=card" class="mdui-fab mdui-color-blue-600"> <i class="mdui-icon material-icons">view_module</i> </a> 
+   </div> 
+   <style>
+.mdui-table td, .mdui-table th{padding: 6px;}
+.progress{width: 10%;min-width: 75px;}
+.progress-text{font-size: 16px;font-weight: 800;position: relative;top: 4px;left: 6px;}
+.offline st,.offline at,.offline gt,.offline .progress-text{color: grey;}
+a{text-decoration:none;color:#333;}.mdui-theme-layout-dark a{color:#fff;}
+</style> 
+   <table class="mdui-table"> 
+    <thead> 
+     <tr> 
+      <th>名称</th>
+      <th>下行</th>
+      <th>上行</th>
+      <th>总下行</th>
+      <th>总上行</th>
+      <th>CPU</th>
+      <th>内存</th>
+      <th>more</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr class=""> 
+      <td class=""><a href="/stats/5a59593d-3c67-4d53-a4bf-6c7b1726aca1/">美西BGP</a></td> 
+      <td>
+       <st>
+        <span id="5a59593d-3c67-4d53-a4bf-6c7b1726aca1_NET_IN" style="max-width: fit-content;">NaN</span>
+       </st></td> 
+      <td>
+       <at>
+        <span id="5a59593d-3c67-4d53-a4bf-6c7b1726aca1_NET_OUT" style="max-width: fit-content;">NaN</span>
+       </at></td> 
+      <td>
+       <st>
+        <span id="5a59593d-3c67-4d53-a4bf-6c7b1726aca1_NET_IN_TOTAL" style="max-width: fit-content;">NaN</span>
+       </st></td> 
+      <td>
+       <at>
+        <span id="5a59593d-3c67-4d53-a4bf-6c7b1726aca1_NET_OUT_TOTAL" style="max-width: fit-content;">NaN</span>
+       </at></td> 
+      <td class="progress"> 
+       <div class="mdui-progress" id="5a59593d-3c67-4d53-a4bf-6c7b1726aca1_CPU_item" style="height: 30px;"> 
+        <div id="5a59593d-3c67-4d53-a4bf-6c7b1726aca1_CPU_progress" class="mdui-progress-determinate mdui-color-indigo-400" style="width: 0%"> 
+         <span id="5a59593d-3c67-4d53-a4bf-6c7b1726aca1_CPU" class="mdui-text-truncate progress-text">NaN</span> 
+        </div> 
+       </div> </td> 
+      <td class="progress"> 
+       <div class="mdui-progress" id="5a59593d-3c67-4d53-a4bf-6c7b1726aca1_MEM_item" style="height: 30px;background-color: #c0929d3f;"> 
+        <div id="5a59593d-3c67-4d53-a4bf-6c7b1726aca1_MEM_progress" class="mdui-progress-determinate mdui-color-pink-400" style="width: 0%"> 
+         <span id="5a59593d-3c67-4d53-a4bf-6c7b1726aca1_MEM" class="mdui-text-truncate progress-text">NaN</span> 
+        </div> 
+       </div> </td> 
+      <td> <i class="mdui-icon material-icons" id="5a59593d-3c67-4d53-a4bf-6c7b1726aca1_host">info_outline</i> </td> 
+     </tr> 
+     <tr class=""> 
+      <td class=""><a href="/stats/f67bee10-78de-4117-984b-a8d581a71d6d/">HE HKIX</a></td> 
+      <td>
+       <st>
+        <span id="f67bee10-78de-4117-984b-a8d581a71d6d_NET_IN" style="max-width: fit-content;">NaN</span>
+       </st></td> 
+      <td>
+       <at>
+        <span id="f67bee10-78de-4117-984b-a8d581a71d6d_NET_OUT" style="max-width: fit-content;">NaN</span>
+       </at></td> 
+      <td>
+       <st>
+        <span id="f67bee10-78de-4117-984b-a8d581a71d6d_NET_IN_TOTAL" style="max-width: fit-content;">NaN</span>
+       </st></td> 
+      <td>
+       <at>
+        <span id="f67bee10-78de-4117-984b-a8d581a71d6d_NET_OUT_TOTAL" style="max-width: fit-content;">NaN</span>
+       </at></td> 
+      <td class="progress"> 
+       <div class="mdui-progress" id="f67bee10-78de-4117-984b-a8d581a71d6d_CPU_item" style="height: 30px;"> 
+        <div id="f67bee10-78de-4117-984b-a8d581a71d6d_CPU_progress" class="mdui-progress-determinate mdui-color-indigo-400" style="width: 0%"> 
+         <span id="f67bee10-78de-4117-984b-a8d581a71d6d_CPU" class="mdui-text-truncate progress-text">NaN</span> 
+        </div> 
+       </div> </td> 
+      <td class="progress"> 
+       <div class="mdui-progress" id="f67bee10-78de-4117-984b-a8d581a71d6d_MEM_item" style="height: 30px;background-color: #c0929d3f;"> 
+        <div id="f67bee10-78de-4117-984b-a8d581a71d6d_MEM_progress" class="mdui-progress-determinate mdui-color-pink-400" style="width: 0%"> 
+         <span id="f67bee10-78de-4117-984b-a8d581a71d6d_MEM" class="mdui-text-truncate progress-text">NaN</span> 
+        </div> 
+       </div> </td> 
+      <td> <i class="mdui-icon material-icons" id="f67bee10-78de-4117-984b-a8d581a71d6d_host">info_outline</i> </td> 
+     </tr> 
+     <tr class=""> 
+      <td class=""><a href="/stats/045a9a79-9fe4-4d41-a5d5-1210fec3cfed/">HKBGP</a></td> 
+      <td>
+       <st>
+        <span id="045a9a79-9fe4-4d41-a5d5-1210fec3cfed_NET_IN" style="max-width: fit-content;">NaN</span>
+       </st></td> 
+      <td>
+       <at>
+        <span id="045a9a79-9fe4-4d41-a5d5-1210fec3cfed_NET_OUT" style="max-width: fit-content;">NaN</span>
+       </at></td> 
+      <td>
+       <st>
+        <span id="045a9a79-9fe4-4d41-a5d5-1210fec3cfed_NET_IN_TOTAL" style="max-width: fit-content;">NaN</span>
+       </st></td> 
+      <td>
+       <at>
+        <span id="045a9a79-9fe4-4d41-a5d5-1210fec3cfed_NET_OUT_TOTAL" style="max-width: fit-content;">NaN</span>
+       </at></td> 
+      <td class="progress"> 
+       <div class="mdui-progress" id="045a9a79-9fe4-4d41-a5d5-1210fec3cfed_CPU_item" style="height: 30px;"> 
+        <div id="045a9a79-9fe4-4d41-a5d5-1210fec3cfed_CPU_progress" class="mdui-progress-determinate mdui-color-indigo-400" style="width: 0%"> 
+         <span id="045a9a79-9fe4-4d41-a5d5-1210fec3cfed_CPU" class="mdui-text-truncate progress-text">NaN</span> 
+        </div> 
+       </div> </td> 
+      <td class="progress"> 
+       <div class="mdui-progress" id="045a9a79-9fe4-4d41-a5d5-1210fec3cfed_MEM_item" style="height: 30px;background-color: #c0929d3f;"> 
+        <div id="045a9a79-9fe4-4d41-a5d5-1210fec3cfed_MEM_progress" class="mdui-progress-determinate mdui-color-pink-400" style="width: 0%"> 
+         <span id="045a9a79-9fe4-4d41-a5d5-1210fec3cfed_MEM" class="mdui-text-truncate progress-text">NaN</span> 
+        </div> 
+       </div> </td> 
+      <td> <i class="mdui-icon material-icons" id="045a9a79-9fe4-4d41-a5d5-1210fec3cfed_host">info_outline</i> </td> 
+     </tr> 
+     <tr class=""> 
+      <td class=""><a href="/stats/dfed63e2-fbca-4137-b5c4-d7c4ae7ceeb7/">HKBGP Premium</a></td> 
+      <td>
+       <st>
+        <span id="dfed63e2-fbca-4137-b5c4-d7c4ae7ceeb7_NET_IN" style="max-width: fit-content;">NaN</span>
+       </st></td> 
+      <td>
+       <at>
+        <span id="dfed63e2-fbca-4137-b5c4-d7c4ae7ceeb7_NET_OUT" style="max-width: fit-content;">NaN</span>
+       </at></td> 
+      <td>
+       <st>
+        <span id="dfed63e2-fbca-4137-b5c4-d7c4ae7ceeb7_NET_IN_TOTAL" style="max-width: fit-content;">NaN</span>
+       </st></td> 
+      <td>
+       <at>
+        <span id="dfed63e2-fbca-4137-b5c4-d7c4ae7ceeb7_NET_OUT_TOTAL" style="max-width: fit-content;">NaN</span>
+       </at></td> 
+      <td class="progress"> 
+       <div class="mdui-progress" id="dfed63e2-fbca-4137-b5c4-d7c4ae7ceeb7_CPU_item" style="height: 30px;"> 
+        <div id="dfed63e2-fbca-4137-b5c4-d7c4ae7ceeb7_CPU_progress" class="mdui-progress-determinate mdui-color-indigo-400" style="width: 0%"> 
+         <span id="dfed63e2-fbca-4137-b5c4-d7c4ae7ceeb7_CPU" class="mdui-text-truncate progress-text">NaN</span> 
+        </div> 
+       </div> </td> 
+      <td class="progress"> 
+       <div class="mdui-progress" id="dfed63e2-fbca-4137-b5c4-d7c4ae7ceeb7_MEM_item" style="height: 30px;background-color: #c0929d3f;"> 
+        <div id="dfed63e2-fbca-4137-b5c4-d7c4ae7ceeb7_MEM_progress" class="mdui-progress-determinate mdui-color-pink-400" style="width: 0%"> 
+         <span id="dfed63e2-fbca-4137-b5c4-d7c4ae7ceeb7_MEM" class="mdui-text-truncate progress-text">NaN</span> 
+        </div> 
+       </div> </td> 
+      <td> <i class="mdui-icon material-icons" id="dfed63e2-fbca-4137-b5c4-d7c4ae7ceeb7_host">info_outline</i> </td> 
+     </tr> 
+    </tbody> 
+   </table> 
+  </div> 
+  <script type="text/javascript">(function(){window['__CF$cv$params']={r:'712d80fdf9079f71',m:'JEdetQ2q15x6TB_2s662fXHqLLmPOwQXiFcOZ.M4igw-1653809208-0-AcDmvQopX/8Qh7p/EV/ulNTBz6DME01h5ciu8aX4/97OnpkT4yM83aEbKtCbFWlaUoye+l9eExc7eoDfF17tv78gKWPSVAQ+aDk5cDIuYvGMvxvNFURgHt/bc0zJgkdUSg==',s:[0xe5132da733,0xc6080d5b52],u:'/cdn-cgi/challenge-platform/h/b'}})();</script>
+  <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon="{&quot;rayId&quot;:&quot;712d80fdf9079f71&quot;,&quot;version&quot;:&quot;2021.12.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;fc2067a21d0c4a2bb5a7a7416dba3164&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>  
+  <footer class="mdui-m-t-5"> 
+   <div class="mdui-p-a-3 mdui-typo"> 
+    <center> 
+     <p> 
+      <at href="https://status.nekoneko.cloud" class="poh">
+       Neko Neko Status
+      </at> Powered by 
+      <st href="https://nekoneko.cloud">
+       Neko Neko Cloud
+      </st> , <a href="https://github.com/nkeonkeo/nekonekostatus"> <strong>view on GitHub</strong> </a> </p> 
+    </center> 
+   </div> 
+  </footer> 
+  <script src="https://cdn.staticfile.org/mdui/1.0.2/js/mdui.min.js"></script> 
+  <script src="/js/core.js"></script> 
+  <script>
+    var container=document.querySelector("#container");
+    container.style.minHeight=window.innerHeight-document.body.clientHeight+container.clientHeight+'px';
+    mdui.mutation();
+</script> 
+  <script src="/js/stats.js?v=1"></script> 
+  <div class="mdui-dialog" id="webSSHdialog"> 
+   <div class="mdui-dialog-title" id="webSSHdialogT"></div> 
+   <div class="mdui-dialog-content" id="webSSHdialogC"> 
+    <div id="terminal"></div> 
+   </div> 
+   <div class="mdui-dialog-actions"> 
+    <button class="mdui-btn mdui-btn-dense btn mdui-color-blue-grey mdui-text-color-white mdui-float-left" mdui-menu="{target: '#ssh-scripts'}">脚本片段</button> 
+    <ul class="mdui-menu mdui-menu-cascade mdui-text-left" id="ssh-scripts"> 
+     <li class="mdui-menu-item" onclick="ssh_script('5be7c150-06f2-11ec-8a34-4d6748467486')"> <a>INIT</a> </li> 
+     <li class="mdui-menu-item" onclick="ssh_script('6a5684b0-06f2-11ec-8a34-4d6748467486')"> <a>安装/更新neko-relay stable</a> </li> 
+     <li class="mdui-menu-item" onclick="ssh_script('3b2c3590-fc48-11eb-8c42-710e1653ca64')"> <a>DDNS (nkeo.top)</a> </li> 
+     <li class="mdui-menu-item" onclick="ssh_script('5e031fc0-fc48-11eb-8c42-710e1653ca64')"> <a>neofetch</a> </li> 
+     <li class="mdui-menu-item" onclick="ssh_script('5495f250-fc48-11eb-8c42-710e1653ca64')"> <a>安装Docker</a> </li> 
+    </ul> 
+    <button class="mdui-btn mdui-btn-dense btn mdui-color-blue mdui-text-color-white" onclick="connect()">连接</button> 
+    <button class="mdui-btn mdui-btn-dense btn mdui-color-red mdui-text-color-white" onclick="dispose()">关闭</button> 
+   </div> 
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@4.13.0/css/xterm.css" /> 
+   <script src="https://cdn.jsdelivr.net/npm/xterm@4.13.0/lib/xterm.js"></script> 
+   <script src="https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.5.0/lib/xterm-addon-fit.js"></script> 
+   <script src="https://cdn.jsdelivr.net/npm/xterm-addon-web-links@0.4.0/lib/xterm-addon-web-links.js"></script> 
+   <script>async function ssh_script(id){
+        var res=await postjson("/admin/ssh_scripts/get",{id});
+        socket.send(res.data.content);
+    }</script> 
+  </div> 
+  <script>
+var webSSHdialog=new mdui.Dialog("#webSSHdialog"),
+    term=null,socket=null,
+    now_sid="";
+function resize(){
+    term.FitAddon.fit();
+    // socket.emit("resize",{cols:term.cols,rows:term.rows});
+}
+function connect(sid=now_sid){
+    now_sid=sid;
+    var path=`/admin/servers/${sid}/ws-ssh/`;
+    if(socket&&socket.readyState==1)return;
+    startloading();
+    term.FitAddon.fit();
+    socket=new WebSocket(window.location.origin.replace('http','ws')+path+JSON.stringify({
+        cols:term.cols,
+        rows:term.rows,
+    }));
+    socket.addEventListener('open',(e)=>{
+        endloading();
+        term.focus();
+    })
+    socket.addEventListener('message',(e)=>{term.write(e.data.toString("utf-8"));});
+    socket.addEventListener('close',(ev)=>{});
+    socket.addEventListener('error',(ev)=>{});
+}
+function dispose(){
+    socket.close();
+    webSSHdialog.close();
+}
+async function webssh(sid){
+    if(term){
+        webSSHdialog.open();
+        term.focus();
+        term.clear();
+        term.writeln("\n");
+        term.writeln("Connecting ...");
+
+        connect(sid);
+        return;
+    }
+    var H=window.screen.availHeight*0.95,
+        W=document.body.clientWidth*0.95,
+        TH=H-48-68-48,TW=W-48;
+    E('webSSHdialog').style.height=H+'px';
+    E('webSSHdialog').style.width=W+'px';
+    E('webSSHdialog').style.maxHeight=H+'px';
+    E('webSSHdialog').style.maxWidth=W+'px';
+    E('webSSHdialogC').style.height=H-48+'px';
+    E('webSSHdialogC').style.width=W+'px';
+    E('terminal').style.height=TH+'px';
+    E('terminal').style.width=TW+'px';
+    term=new Terminal({
+        cols:Math.floor(TW/8),
+        rows:Math.floor(TH/8),
+        cursorBlink: true,
+        cursorStyle: "underline",
+        scrollback: 1000,
+    });
+    webSSHdialog.open();
+    term.open(document.getElementById('terminal'));
+    term.FitAddon=new FitAddon.FitAddon();
+    term.loadAddon(term.FitAddon);
+    term.WebLinksAddon=new WebLinksAddon.WebLinksAddon();
+    term.loadAddon(term.WebLinksAddon);
+    term.onData(data=>{
+        if(socket.readyState!=1){
+            connect(sid);
+            return;
+        }
+        try{
+            socket.send(data);
+        } catch (e){
+            term.write('\r\nConnection lost, trying to connect again!\r\n');
+            connect(sid);
+        }
+    });
+    connect(sid);
+}
+</script> 
+ </body>
+</html>

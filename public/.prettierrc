@@ -1,0 +1,10 @@
+{
+  "tabWidth": 4,
+  "useTabs": false,
+  "printWidth": 250,
+  "proseWrap":"never",
+  "vueIndentScriptAndStyle":false,
+  "html-top-level-indent":"never",
+  "singleQuote": false,
+  "semi": false
+}
