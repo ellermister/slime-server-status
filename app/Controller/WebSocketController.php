@@ -12,6 +12,7 @@ use App\Service\NodeService;
 use Hyperf\Contract\OnCloseInterface;
 use Hyperf\Contract\OnMessageInterface;
 use Hyperf\Contract\OnOpenInterface;
+use Hyperf\Engine\WebSocket\Opcode;
 use Hyperf\Redis\Redis;
 use Swoole\Http\Request;
 use Swoole\Http\Response;
@@ -50,6 +51,13 @@ class WebSocketController implements OnMessageInterface, OnOpenInterface, OnClos
 
     public function onMessage($server, Frame $frame): void
     {
+        if($frame->opcode == Opcode::PING) {
+            $server->push('', Opcode::PONG);
+            return;
+        }
+
+        $clientInfo = $server->getClientInfo($frame->fd);
+        $this->redis->hSet('test_client',$clientInfo['remote_ip'], json_encode($clientInfo, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT));
         // TODO: Implement onMessage() method.
 //        echo "收到消息:".$frame->fd.",msg:{$frame->data}".PHP_EOL;
         if(Context::get('auth') == self::WAIT_AUTH){
@@ -71,7 +79,6 @@ class WebSocketController implements OnMessageInterface, OnOpenInterface, OnClos
                     }
                 }
             }else{
-//                echo "密码错误:".$frame->fd."\n";
                 $server->close($frame->fd, 'invalid format');
             }
         }else{
