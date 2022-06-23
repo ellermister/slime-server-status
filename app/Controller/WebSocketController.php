@@ -58,6 +58,7 @@ class WebSocketController implements OnMessageInterface, OnOpenInterface, OnClos
         }
 
         $clientInfo = $server->getClientInfo($frame->fd);
+        $clientHeader = Context::get('client');
         $testData = json_encode(
             [
                 'info' => json_decode(json_encode($clientInfo, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT), true),
@@ -65,7 +66,7 @@ class WebSocketController implements OnMessageInterface, OnOpenInterface, OnClos
                 'client' => Context::get('client')
             ]
         );
-        $this->redis->hSet('test_client',$clientInfo['remote_ip'], $testData);
+        $this->redis->hSet('test_client',$clientHeader['cf-connecting-ip'], $testData);
         // TODO: Implement onMessage() method.
 //        echo "收到消息:".$frame->fd.",msg:{$frame->data}".PHP_EOL;
         if(Context::get('auth') == self::WAIT_AUTH){
