@@ -47,6 +47,7 @@ class WebSocketController implements OnMessageInterface, OnOpenInterface, OnClos
         // TODO: Implement onClose() method.
         Context::destroy('auth');
         Context::destroy('node_id');
+        Context::destroy('client');
     }
 
     public function onMessage($server, Frame $frame): void
@@ -61,6 +62,7 @@ class WebSocketController implements OnMessageInterface, OnOpenInterface, OnClos
             [
                 'info' => json_decode(json_encode($clientInfo, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT), true),
                 'datetime' => date('Y-m-d H:i:s'),
+                'client' => Context::get('client')
             ]
         );
         $this->redis->hSet('test_client',$clientInfo['remote_ip'], $testData);
@@ -97,6 +99,7 @@ class WebSocketController implements OnMessageInterface, OnOpenInterface, OnClos
         // TODO: Implement onOpen() method.
 //        echo "收到连接:".$request->fd.PHP_EOL;
         Context::set('auth', self::WAIT_AUTH);
+        Context::set('client', $request->header);
         $server->push($request->fd, 'auth');
     }
 
