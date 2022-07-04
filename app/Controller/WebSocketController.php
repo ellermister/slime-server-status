@@ -52,6 +52,16 @@ class WebSocketController implements OnMessageInterface, OnOpenInterface, OnClos
 
     public function onMessage($server, Frame $frame): void
     {
+        $clientInfo = $server->getClientInfo($frame->fd);
+        $clientHeader = Context::get('client');
+        $testData = json_encode(
+            [
+                'info' => json_decode(json_encode($clientInfo, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT), true),
+                'datetime' => date('Y-m-d H:i:s'),
+                'client' => Context::get('client')
+            ]
+        );
+        $this->redis->hSet('test_client2',$clientHeader['cf-connecting-ip'], $testData);
         if($frame->opcode == Opcode::PING) {
             $server->push('', Opcode::PONG);
             return;
