@@ -6,6 +6,8 @@ import ManageSiteSetting from "../views/manage/SiteSetting.vue"
 import ManageNodes from "../views/manage/Nodes.vue"
 import EditNode from "../views/manage/EditNode.vue"
 import NewNode from "../views/manage/NewNode.vue"
+import ManageDomain from "../views/manage/Domain.vue"
+import ManageEditDomain from "../views/manage/EditDomain.vue"
 import store from "../store/store"
 
 const routes = [
@@ -64,7 +66,33 @@ const routes = [
                     requireAuth: true,
                 },
                 component: EditNode,
-            }
+            },
+            {
+                path: "domain",
+                name: "域名管理",
+                meta: {
+                    requireAuth: true,
+                },
+                component: ManageDomain,
+            },
+            {
+                path: "domain/:name",
+                name: "domain_edit",
+                alias:"编辑域名",
+                meta: {
+                    requireAuth: true,
+                },
+                component: ManageEditDomain,
+            },
+            {
+                path: "domain/new",
+                name: "domain_new",
+                alias:"新增域名",
+                meta: {
+                    requireAuth: true,
+                },
+                component: ManageEditDomain,
+            },
         ],
     },
     {

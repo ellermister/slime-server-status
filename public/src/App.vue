@@ -38,6 +38,11 @@
                     <div class="mdui-list-item-content">节点管理</div>
                 </router-link>
 
+                <router-link to="/manage/domain" class="mdui-list-item">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">domain</i>
+                    <div class="mdui-list-item-content">域名管理</div>
+                </router-link>
+
                 <div class="mdui-list-item" @click="logout">
                     <i class="mdui-list-item-icon mdui-icon material-icons">verified_user</i>
                     <div class="mdui-list-item-content">注销登录</div>
