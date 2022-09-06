@@ -42,7 +42,7 @@ class AppExceptionHandler extends ExceptionHandler
         }
         return $response->withHeader('Server', 'Hyperf')->withStatus(500)->withBody(new SwooleStream(
             json_encode(rjson('Internal Server Error.',500))
-        ));
+        ))->withHeader('Content-Type','json/application');
     }
 
     public function isValid(Throwable $throwable): bool

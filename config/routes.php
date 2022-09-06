@@ -32,6 +32,15 @@ Router::addGroup('/api',function(){
         Router::post('/node/new', 'App\Controller\ManagerController@addNode');
         Router::post('/node/{id}', 'App\Controller\ManagerController@updateNode');
         Router::delete('/node/{id}', 'App\Controller\ManagerController@deleteNode');
+
+        // domains
+        Router::get('/domain', 'App\Controller\DomainController@getDomains');
+
+        Router::post('/domain/flush', 'App\Controller\DomainController@flushDomain');
+
+        Router::get('/domain/{name}', 'App\Controller\DomainController@getDomain');
+        Router::post('/domain/{name}', 'App\Controller\DomainController@writeDomain');
+        Router::delete('/domain/{name}', 'App\Controller\DomainController@removeDomain');
     }, ['middleware' => [\App\Middleware\AuthMiddleware::class]]);
 
 

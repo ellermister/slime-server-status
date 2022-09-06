@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ce47ac1fa6f0c2ebe245012c2612587",
+    "content-hash": "f3523fdf64ae5e2bf88e06abd3933908",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -721,6 +721,61 @@
             "time": "2022-03-20T21:55:58+00:00"
         },
         {
+            "name": "hyperf/async-queue",
+            "version": "v2.2.33",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hyperf/async-queue.git",
+                "reference": "6e8da55c8b19322023d5fdd970bcbddf774e79f0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hyperf/async-queue/zipball/6e8da55c8b19322023d5fdd970bcbddf774e79f0",
+                "reference": "6e8da55c8b19322023d5fdd970bcbddf774e79f0",
+                "shasum": ""
+            },
+            "require": {
+                "hyperf/command": "~2.2.0",
+                "hyperf/contract": "~2.2.8",
+                "hyperf/utils": "~2.2.0",
+                "php": ">=7.2",
+                "psr/container": "^1.0|^2.0",
+                "psr/event-dispatcher": "^1.0"
+            },
+            "suggest": {
+                "hyperf/di": "Required to use annotations.",
+                "hyperf/event": "Required to dispatch a event.",
+                "hyperf/logger": "Required to use QueueHandleListener.",
+                "hyperf/process": "Auto register the consumer process for server."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                },
+                "hyperf": {
+                    "config": "Hyperf\\AsyncQueue\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hyperf\\AsyncQueue\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A async queue component for hyperf.",
+            "homepage": "https://hyperf.io",
+            "keywords": [
+                "async-queue",
+                "hyperf",
+                "php"
+            ],
+            "time": "2022-05-24T13:10:54+00:00"
+        },
+        {
             "name": "hyperf/cache",
             "version": "v2.2.15",
             "source": {
@@ -922,16 +977,16 @@
         },
         {
             "name": "hyperf/contract",
-            "version": "v2.2.31",
+            "version": "v2.2.33",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hyperf/contract.git",
-                "reference": "6bdbc781135fdc342376493a016bf5af2c947385"
+                "reference": "1ebf037c91d76ec05af9e5cb3335b0f5ec810e27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hyperf/contract/zipball/6bdbc781135fdc342376493a016bf5af2c947385",
-                "reference": "6bdbc781135fdc342376493a016bf5af2c947385",
+                "url": "https://api.github.com/repos/hyperf/contract/zipball/1ebf037c91d76ec05af9e5cb3335b0f5ec810e27",
+                "reference": "1ebf037c91d76ec05af9e5cb3335b0f5ec810e27",
                 "shasum": ""
             },
             "require": {
@@ -959,7 +1014,54 @@
                 "php",
                 "swoole"
             ],
-            "time": "2022-04-15T08:48:24+00:00"
+            "time": "2022-05-24T13:10:54+00:00"
+        },
+        {
+            "name": "hyperf/crontab",
+            "version": "v2.2.33",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hyperf/crontab.git",
+                "reference": "64e1a6db961fdf46a111ec172956abb5a386511c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hyperf/crontab/zipball/64e1a6db961fdf46a111ec172956abb5a386511c",
+                "reference": "64e1a6db961fdf46a111ec172956abb5a386511c",
+                "shasum": ""
+            },
+            "require": {
+                "hyperf/utils": "~2.2.0",
+                "nesbot/carbon": "^2.0",
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                },
+                "hyperf": {
+                    "config": "Hyperf\\Crontab\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hyperf\\Crontab\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A crontab component for Hyperf.",
+            "homepage": "https://hyperf.io",
+            "keywords": [
+                "crontab",
+                "hyperf",
+                "php",
+                "swoole"
+            ],
+            "time": "2022-05-24T13:10:54+00:00"
         },
         {
             "name": "hyperf/database",
@@ -1221,16 +1323,16 @@
         },
         {
             "name": "hyperf/event",
-            "version": "v2.2.0",
+            "version": "v2.2.33",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hyperf/event.git",
-                "reference": "9c2ab56737d080d799b9b1f905716c7bf0d61ef6"
+                "reference": "cd92f5c1218c65f29b15c4d12dcf5835e0426ac8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hyperf/event/zipball/9c2ab56737d080d799b9b1f905716c7bf0d61ef6",
-                "reference": "9c2ab56737d080d799b9b1f905716c7bf0d61ef6",
+                "url": "https://api.github.com/repos/hyperf/event/zipball/cd92f5c1218c65f29b15c4d12dcf5835e0426ac8",
+                "reference": "cd92f5c1218c65f29b15c4d12dcf5835e0426ac8",
                 "shasum": ""
             },
             "require": {
@@ -1267,7 +1369,7 @@
                 "php",
                 "swoole"
             ],
-            "time": "2021-07-18T06:50:14+00:00"
+            "time": "2022-05-24T13:10:54+00:00"
         },
         {
             "name": "hyperf/exception-handler",
@@ -2048,6 +2150,64 @@
                 "websocket"
             ],
             "time": "2022-04-15T08:32:18+00:00"
+        },
+        {
+            "name": "io-developer/php-whois",
+            "version": "4.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/io-developer/php-whois.git",
+                "reference": "6c6cd1d7392d76ba18752cf37227433b50b0bac9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/io-developer/php-whois/zipball/6c6cd1d7392d76ba18752cf37227433b50b0bac9",
+                "reference": "6c6cd1d7392d76ba18752cf37227433b50b0bac9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=7.2",
+                "true/punycode": "^2.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Iodev\\": "src/Iodev/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sergey Sedyshev",
+                    "email": "i.o.developer@gmail.com",
+                    "homepage": "https://github.com/io-developer"
+                }
+            ],
+            "description": "PHP WHOIS provides parsed and raw whois lookup of domains and ASN routes. PHP 5.4+ and 7+ compatible ",
+            "homepage": "https://github.com/io-developer/php-whois",
+            "keywords": [
+                "asn",
+                "domain",
+                "info",
+                "lookup",
+                "parser",
+                "php",
+                "query",
+                "routes",
+                "tld",
+                "whois",
+                "црщшы"
+            ],
+            "time": "2022-06-14T10:29:24+00:00"
         },
         {
             "name": "laminas/laminas-mime",
@@ -4081,6 +4241,53 @@
             "time": "2022-01-02T09:53:40+00:00"
         },
         {
+            "name": "true/punycode",
+            "version": "v2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/true/php-punycode.git",
+                "reference": "a4d0c11a36dd7f4e7cd7096076cab6d3378a071e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/true/php-punycode/zipball/a4d0c11a36dd7f4e7cd7096076cab6d3378a071e",
+                "reference": "a4d0c11a36dd7f4e7cd7096076cab6d3378a071e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "symfony/polyfill-mbstring": "^1.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.7",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "TrueBV\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Renan Gonçalves",
+                    "email": "renan.saddam@gmail.com"
+                }
+            ],
+            "description": "A Bootstring encoding of Unicode for Internationalized Domain Names in Applications (IDNA)",
+            "homepage": "https://github.com/true/php-punycode",
+            "keywords": [
+                "idna",
+                "punycode"
+            ],
+            "abandoned": true,
+            "time": "2016-11-16T10:37:54+00:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v5.4.1",
             "source": {
@@ -4944,6 +5151,7 @@
             "keywords": [
                 "diff"
             ],
+            "abandoned": true,
             "time": "2020-10-14T08:32:19+00:00"
         },
         {
@@ -7138,7 +7346,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.3",
+        "php": ">=8.0",
         "ext-json": "*",
         "ext-openssl": "*"
     },

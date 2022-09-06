@@ -13,9 +13,13 @@
     "license": "Apache-2.0",
     "require": {
         "php": ">=8.0",
+        "ext-json": "*",
+        "ext-openssl": "*",
+        "hyperf/async-queue": "^2.2",
         "hyperf/cache": "~2.2.0",
         "hyperf/command": "~2.2.0",
         "hyperf/config": "~2.2.0",
+        "hyperf/crontab": "^2.2",
         "hyperf/database": "~2.2.0",
         "hyperf/db-connection": "~2.2.0",
         "hyperf/framework": "~2.2.0",
@@ -26,8 +30,7 @@
         "hyperf/process": "~2.2.0",
         "hyperf/redis": "~2.2.0",
         "hyperf/websocket-server": "^2.2",
-        "ext-json": "*",
-      "ext-openssl": "*"
+        "io-developer/php-whois": "^4.1"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
