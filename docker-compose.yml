@@ -1,0 +1,28 @@
+version: "3"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      REDIS_HOST: redis
+    volumes:
+      - "web_data:/www"
+
+  redis:
+    image: "redis:alpine"
+    volumes:
+      - "redis_data:/data"
+    command: "redis-server --save 60 1 --loglevel warning"
+
+  nginx:
+    image: "nginx:latest"
+    volumes:
+      - "./nginx/:/etc/nginx/conf.d"
+      - "web_data:/www"
+    ports:
+      - "80"
+
+volumes:
+  web_data:
+  redis_data:

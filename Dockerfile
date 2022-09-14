@@ -1,20 +1,24 @@
-# Default Dockerfile
-#
-# @link     https://www.hyperf.io
-# @document https://hyperf.wiki
-# @contact  group@hyperf.io
-# @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+FROM node:16.8.0
+
+COPY  . /build
+WORKDIR /build/public
+
+RUN yarn && yarn run build
+
+FROM golang:1.18.3
+
+COPY --from=0 /build  /build
+WORKDIR /build/node-client
+
+RUN go mod tidy && go build -ldflags="-s -w" client.go
+
 
 FROM hyperf/hyperf:8.0-alpine-v3.12-swoole
-LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MIT" app.name="Hyperf"
+LABEL version="1.0" license="MIT" app.name="slime-status"
 
-##
-# ---------- env settings ----------
-##
-# --build-arg timezone=Asia/Shanghai
+# --build-arg timezone=Asia/Hong_Kong
 ARG timezone
-
-ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
+ENV TIMEZONE=${timezone:-"Asia/Hong_Kong"} \
     APP_ENV=prod \
     SCAN_CACHEABLE=(true)
 
@@ -40,15 +44,10 @@ RUN set -ex \
     && rm -rf /var/cache/apk/* /tmp/* /usr/share/man \
     && echo -e "\033[42;37m Build Completed :).\033[0m\n"
 
-WORKDIR /opt/www
 
-# Composer Cache
-# COPY ./composer.* /opt/www/
-# RUN composer install --no-dev --no-scripts
+COPY --from=1 /build /www
+WORKDIR /www
 
-COPY . /opt/www
-RUN composer update --no-dev -o && php bin/hyperf.php
+RUN composer install --ignore-platform-reqs --no-dev -o
 
-EXPOSE 9501
-
-ENTRYPOINT ["php", "/opt/www/bin/hyperf.php", "start"]
+ENTRYPOINT ["php", "/www/bin/hyperf.php", "start"]
